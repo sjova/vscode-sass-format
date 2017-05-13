@@ -1,7 +1,7 @@
 {
   "name": "vscode-sass-format",
   "displayName": "Sass Formatter",
-  "description": "Beautify sass, scss and css files",
+  "description": "Beautify sass, scss and css files.",
   "version": "1.0.0",
   "publisher": "sasa",
   "engines": {
@@ -11,12 +11,12 @@
   "author": "Sasa Jovanovic",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sjova/vscode-sass-format"
+    "url": "https://github.com/sjova/vscode-sass-format.git"
   },
   "bugs": {
     "url": "https://github.com/sjova/vscode-sass-format/issues"
   },
-  "homepage": "https://github.com/sjova/vscode-sass-format",
+  "homepage": "https://github.com/sjova/vscode-sass-format/blob/master/README.md",
   "icon": "images/sass-format-icon.png",
   "galleryBanner": {
     "color": "#cccc66",
