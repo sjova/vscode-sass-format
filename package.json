@@ -1,0 +1,96 @@
+{
+  "name": "vscode-sass-format",
+  "displayName": "Sass Formatter",
+  "description": "Beautify sass, scss and css files",
+  "version": "1.0.0",
+  "publisher": "sasa",
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "license": "MIT",
+  "author": "Sasa Jovanovic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjova/vscode-sass-format"
+  },
+  "bugs": {
+    "url": "https://github.com/sjova/vscode-sass-format/issues"
+  },
+  "homepage": "https://github.com/sjova/vscode-sass-format",
+  "icon": "images/sass-format-icon.png",
+  "galleryBanner": {
+    "color": "#cccc66",
+    "theme": "light"
+  },
+  "categories": [
+    "Formatters",
+    "Languages"
+  ],
+  "keywords": [
+    "formatter",
+    "formatting",
+    "beautifier",
+    "beautify",
+    "prettifier",
+    "prettify",
+    "sass",
+    "scss",
+    "css"
+  ],
+  "activationEvents": [
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:css"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Sass Format configuration",
+      "properties": {
+        "sassFormat.dasherize": {
+          "type": "boolean",
+          "default": false,
+          "description": "Convert underscores to dashes."
+        },
+        "sassFormat.indent": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "default": 4,
+          "description": "How many spaces to use for each level of indentation. Defaults to 4. \"t\" means use hard tabs."
+        },
+        "sassFormat.oldStyle": {
+          "type": "boolean",
+          "default": false,
+          "description": "Output the old-style \":prop val\" property syntax. Only meaningful when formating Sass."
+        },
+        "sassFormat.defaultEncoding": {
+          "type": "string",
+          "default": "default",
+          "description": "Specify the default encoding for input files."
+        },
+        "sassFormat.unixNewlines": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use Unix-style newlines in written files. Always true on Unix."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "mocha": "^2.3.3",
+    "tslint": "^5.2.0",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  }
+}
