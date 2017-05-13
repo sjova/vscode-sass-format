@@ -40,4 +40,4 @@ This extension contributes the following settings:
 
 ### 1.0.0
 
-Initial release of Sass Format
+Initial release of Sass Formatter
