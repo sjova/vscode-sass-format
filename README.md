@@ -4,7 +4,7 @@ Sass formatter extension for Visual Studio Code built on top of **sass-convert**
 
 ## Requirements
 
-Requires [sass command line tool](http://sass-lang.com/install) to be installed. More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax).
+Requires [sass command line tools](http://sass-lang.com/install) to be installed. More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax).
 
 ## Usage
 
@@ -28,8 +28,8 @@ This extension contributes the following settings:
 * `sassFormat.dasherize`: Convert underscores to dashes.
 * `sassFormat.indent`: How many spaces to use for each level of indentation. Defaults to 4. "t" means use hard tabs.
 * `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formating Sass.
-* `sassFormat.defaultEncoding`: Specify the default encoding for input files.
-* `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix.
+* `sassFormat.defaultEncoding`: Specify the default encoding for input files. **Important Note: This is not well tested, so use it carefully.**
+* `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. **Important Note: This is not well tested, so use it carefully.**
 
 ## Coming Soon
 

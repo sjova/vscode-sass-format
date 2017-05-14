@@ -16,6 +16,9 @@ import {
 	workspace
 } from 'vscode';
 
+const sassConvertCommand: string = 'sass-convert'; // `Sass Formatter` dependency
+const sassConvertMissingCommandMessage: string = 'Please install the sass command line tools from http://sass-lang.com/install if you want to use Sass Formatter extension.';
+
 export function activate(context: ExtensionContext): void {
 	// Sass Format
 	context.subscriptions.push(registerSassFormat());
@@ -24,16 +27,18 @@ export function activate(context: ExtensionContext): void {
 function registerSassFormat(): Disposable {
 	checkDependencies();
 
-	const sassSelector: DocumentSelector = ['scss', 'sass', 'css'];
+	const sassSelectors: DocumentSelector = ['scss', 'sass', 'css'];
 
-	return languages.registerDocumentFormattingEditProvider(sassSelector, new SassFormatEditProvider);
+	return languages.registerDocumentFormattingEditProvider(sassSelectors, new SassFormatEditProvider);
 }
 
 function checkDependencies(): void {
 	try {
-		execSync('sass-convert --version');
+		let sassConvertVersion: string = execSync(`${sassConvertCommand} --version`).toString();
+		console.log(`${sassConvertCommand} version:`, sassConvertVersion);
 	} catch (error) {
-		window.showInformationMessage('Please install the sass command line tool from http://sass-lang.com/install');
+		console.log(`${sassConvertCommand} error:`, error);
+		window.showInformationMessage(sassConvertMissingCommandMessage);
 	}
 }
 
@@ -42,15 +47,15 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 	provideDocumentFormattingEdits(document: TextDocument): TextEdit[] {
 		let result: TextEdit[] = [];
 
-		let rangeStart: Position = document.lineAt(0).range.start;
-		let rangeEnd: Position = document.lineAt(document.lineCount - 1).range.end;
-		let range: Range = new Range(rangeStart, rangeEnd);
-
 		let newText: string = this.formatSass(document);
 
-		result.push(TextEdit.replace(range, newText));
+		if (newText) {
+			let rangeStart: Position = document.lineAt(0).range.start;
+			let rangeEnd: Position = document.lineAt(document.lineCount - 1).range.end;
+			let range: Range = new Range(rangeStart, rangeEnd);
 
-		// window.showInformationMessage('Sass Format was successful!');
+			result.push(TextEdit.replace(range, newText));
+		}
 
 		return result;
 	}
@@ -62,17 +67,20 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 
 		let inputFile = document.uri.fsPath;
 
-		let sassConvertCommand = `sass-convert ${sassConvertOptions} ${inputFile}`;
+		let sassConvertFormatCommand = `${sassConvertCommand} ${sassConvertOptions} ${inputFile}`;
 
-		// console.log(sassConvertCommand);
+		// console.log('sassConvertFormatCommand:', sassConvertFormatCommand);
 
 		try {
-			result = execSync(sassConvertCommand, { encoding: 'utf8' });
+			result = execSync(sassConvertFormatCommand, { encoding: 'utf8' });
 		} catch (error) {
+			console.log(`${sassConvertCommand} error:`, error);
+			window.showInformationMessage(sassConvertMissingCommandMessage);
+
 			result = null;
 		}
 
-		// console.log(result);
+		// console.log('Formatted sass:', result);
 
 		return result;
 	}
@@ -110,7 +118,7 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 			sassConvertOptions += ' --old';
 		}
 
-		// Input and Output
+		// Input and Output (TODO: revisit these two options)
 
 		if (optionDefaultEncoding !== 'default') {
 			sassConvertOptions += ` --default-encoding ${optionDefaultEncoding}`;
