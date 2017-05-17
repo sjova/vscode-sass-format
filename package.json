@@ -2,7 +2,7 @@
   "name": "vscode-sass-format",
   "displayName": "Sass Formatter",
   "description": "Beautify sass, scss and css files.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "sasa",
   "engines": {
     "vscode": "^1.12.0"

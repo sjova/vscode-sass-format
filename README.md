@@ -41,7 +41,6 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 1.0.1
-- Prevent text delete if `sass-convert` command is not installed and/or not found, and updated info message
-- Updated `README.md` (added notes that `defaultEncoding` and `unixNewlines` settings are not well tested and fixed typo)
-- Few small code improvements
+### 1.0.2
+- Added `sassFormat.sassPath` setting
+- Fixed `formatOnSave` bug
