@@ -71,6 +71,11 @@
           "type": "boolean",
           "default": false,
           "description": "Use Unix-style newlines in written files. Always true on Unix."
+        },
+        "sassFormat.sassPath": {
+          "type": "string",
+          "default": null,
+          "description": "Custom Sass PATH."
         }
       }
     }

@@ -17,6 +17,8 @@ Default keyboard shortcuts for **Format Document** command:
 
 To automatically format a file on save, add the following to your *settings.json* file: `"editor.formatOnSave": true`.
 
+To automatically insert a final new line at the end of the file when saving it, add the following to your *settings.json* file: `"files.insertFinalNewline": false`.
+
 ## Sass Formatting Demo
 
 ![Sass Formatting Demo](images/sass-format-demo.gif)
@@ -30,6 +32,7 @@ This extension contributes the following settings:
 * `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formating Sass.
 * `sassFormat.defaultEncoding`: Specify the default encoding for input files. **Important Note: This is not well tested, so use it carefully.**
 * `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. **Important Note: This is not well tested, so use it carefully.**
+* `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
 
 ## Coming Soon
 

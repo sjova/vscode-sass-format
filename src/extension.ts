@@ -16,8 +16,11 @@ import {
 	workspace
 } from 'vscode';
 
-const sassConvertCommand: string = 'sass-convert'; // `Sass Formatter` dependency
+let optionSassPath = workspace.getConfiguration('sassFormat').get<string>("sassPath");
+let sassConvertCommand: string = 'sass-convert'; // `Sass Formatter` dependency
+
 const sassConvertMissingCommandMessage: string = 'Please install the sass command line tools from http://sass-lang.com/install if you want to use Sass Formatter extension.';
+const sassConvertInvalidSassPathMessage: string = 'The sassPath setting is not valid.';
 
 export function activate(context: ExtensionContext): void {
 	// Sass Format
@@ -26,6 +29,7 @@ export function activate(context: ExtensionContext): void {
 
 function registerSassFormat(): Disposable {
 	checkDependencies();
+	updateSassPath();
 
 	const sassSelectors: DocumentSelector = ['scss', 'sass', 'css'];
 
@@ -38,6 +42,24 @@ function checkDependencies(): void {
 		console.log(`${sassConvertCommand} version:`, sassConvertVersion);
 	} catch (error) {
 		console.log(`${sassConvertCommand} error:`, error);
+		showInformationMessage();
+	}
+}
+
+function updateSassPath(): void {
+	if (optionSassPath) {
+		if (optionSassPath.endsWith('/')) {
+			optionSassPath = optionSassPath.slice(0, -1);
+		}
+
+		sassConvertCommand = optionSassPath + '/' + sassConvertCommand;
+	}
+}
+
+function showInformationMessage(): void {
+	if (optionSassPath) {
+		window.showInformationMessage(sassConvertInvalidSassPathMessage);
+	} else {
 		window.showInformationMessage(sassConvertMissingCommandMessage);
 	}
 }
@@ -75,7 +97,7 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 			result = execSync(sassConvertFormatCommand, { encoding: 'utf8' });
 		} catch (error) {
 			console.log(`${sassConvertCommand} error:`, error);
-			window.showInformationMessage(sassConvertMissingCommandMessage);
+			showInformationMessage();
 
 			result = null;
 		}
