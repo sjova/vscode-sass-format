@@ -69,7 +69,9 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 	provideDocumentFormattingEdits(document: TextDocument): TextEdit[] {
 		let result: TextEdit[] = [];
 
-		let newText: string = this.formatSass(document);
+		let text = document.getText();
+
+		let newText: string = this.formatSass(text, document.uri.fsPath);
 
 		if (newText) {
 			let rangeStart: Position = document.lineAt(0).range.start;
@@ -82,19 +84,17 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 		return result;
 	}
 
-	formatSass(document: TextDocument): string {
+	formatSass(text: string, fsPath: string): string {
 		let result: string;
 
-		let sassConvertOptions = this.getSassConvertOptions(document);
+		let sassConvertOptions = this.getSassConvertOptions(fsPath);
 
-		let inputFile = document.uri.fsPath;
-
-		let sassConvertFormatCommand = `${sassConvertCommand} ${sassConvertOptions} ${inputFile}`;
+		let sassConvertFormatCommand = `${sassConvertCommand} ${sassConvertOptions}`;
 
 		// console.log('sassConvertFormatCommand:', sassConvertFormatCommand);
 
 		try {
-			result = execSync(sassConvertFormatCommand, { encoding: 'utf8' });
+			result = execSync(sassConvertFormatCommand, { encoding: 'utf8', input: text });
 		} catch (error) {
 			console.log(`${sassConvertCommand} error:`, error);
 			showInformationMessage();
@@ -107,7 +107,7 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 		return result;
 	}
 
-	getSassConvertOptions(document: TextDocument): string {
+	getSassConvertOptions(fsPath: string): string {
 		const optionDasherize = workspace.getConfiguration('sassFormat').get<boolean>("dasherize");
 		const optionIndent = workspace.getConfiguration('sassFormat').get<number | string>("indent");
 		const optionOldStyle = workspace.getConfiguration('sassFormat').get<boolean>("oldStyle");
@@ -115,8 +115,6 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 		const optionUnixNewlines = workspace.getConfiguration('sassFormat').get<boolean>("unixNewlines");
 
 		let sassConvertOptions: string = '';
-
-		let fsPath = document.uri.fsPath;
 
 		// Common Options
 
@@ -140,12 +138,16 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 			sassConvertOptions += ' --old';
 		}
 
-		// Input and Output (TODO: revisit these two options)
+		// Input and Output
 
+		sassConvertOptions += ' --stdin';
+
+		// TODO: revisit this option
 		if (optionDefaultEncoding !== 'default') {
 			sassConvertOptions += ` --default-encoding ${optionDefaultEncoding}`;
 		}
 
+		// TODO: revisit this option
 		if (optionUnixNewlines) {
 			sassConvertOptions += ' --unix-newlines';
 		}
