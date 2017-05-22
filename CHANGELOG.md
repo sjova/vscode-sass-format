@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.0.3] - 2017-05-22
+- Fixed `Invalid CSS` error (defined `--from` option for each type of formatting)
+- Updated `README.md` (updated `Requirements` section, added `Known issues` and `Issues` sections)
+
 ## [1.0.2] - 2017-05-17
 - Added `sassFormat.sassPath` setting
 - Fixed `formatOnSave` bug

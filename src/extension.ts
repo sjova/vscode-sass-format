@@ -125,11 +125,11 @@ class SassFormatEditProvider implements DocumentFormattingEditProvider {
 		// Common Options
 
 		if (fsPath.endsWith('.scss') || fsPath.endsWith('.css')) {
-			sassConvertOptions += '--to scss';
+			sassConvertOptions += '--from scss --to scss';
 		}
 
 		if (fsPath.endsWith('.sass')) {
-			sassConvertOptions += '--to sass';
+			sassConvertOptions += '--from sass --to sass';
 		}
 
 		// Style
