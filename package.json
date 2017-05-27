@@ -2,7 +2,7 @@
   "name": "vscode-sass-format",
   "displayName": "Sass Formatter",
   "description": "Beautify sass, scss and css files.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "publisher": "sasa",
   "engines": {
     "vscode": "^1.12.0"
@@ -64,13 +64,18 @@
         },
         "sassFormat.defaultEncoding": {
           "type": "string",
-          "default": "default",
-          "description": "Specify the default encoding for input files."
+          "default": "UTF-8",
+          "description": "Specify the default encoding for input files. Defaults to \"UTF-8\"."
         },
         "sassFormat.unixNewlines": {
           "type": "boolean",
           "default": false,
-          "description": "Use Unix-style newlines in written files. Always true on Unix."
+          "description": "Use Unix-style newlines in written files. Always true on Unix. This setting is deprecated. Please use \"End of Line\" setting from VS Code."
+        },
+        "sassFormat.useSingleQuotes": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use single quotes."
         },
         "sassFormat.sassPath": {
           "type": "string",

@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.0] - 2017-05-27
+- Added `Format Selection` support
+- Added `useSingleQuotes` setting
+- Added support for Unicode characters
+- Added output channel `Sass Formatter`
+- Better handling errors
+- Code refactoring
+- Updated `README.md`
+
 ## [1.0.3] - 2017-05-22
 - Fixed `Invalid CSS` error (defined `--from` option for each type of formatting)
 - Updated `README.md` (updated `Requirements` section, added `Known issues` and `Issues` sections)
