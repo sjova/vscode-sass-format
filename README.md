@@ -125,11 +125,9 @@ Also paste me whole output from the Output panel (**View** > **Output** > **Sass
 
 ## Release Notes
 
-### 1.1.0
-- Added `Format Selection` support
-- Added `useSingleQuotes` setting
-- Added support for Unicode characters
-- Added output channel `Sass Formatter`
-- Better handling errors
-- Code refactoring
+### 1.1.1
+- Fixed formatting of CSS files
+- Ignored `useSingleQuotes` setting for double quotes in comments
+- Added `Sass Lint` configuration support in features roadmad
+- Updated vscode engine to the latest version (`"vscode": "^1.14.0"`)
 - Updated `README.md`

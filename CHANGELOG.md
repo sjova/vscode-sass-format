@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.1] - 2017-07-16
+- Fixed formatting of CSS files
+- Ignored `useSingleQuotes` setting for double quotes in comments
+- Added `Sass Lint` configuration support in features roadmad
+- Updated vscode engine to the latest version (`"vscode": "^1.14.0"`)
+- Updated `README.md`
+
 ## [1.1.0] - 2017-05-27
 - Added `Format Selection` support
 - Added `useSingleQuotes` setting
