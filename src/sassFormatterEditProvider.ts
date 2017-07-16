@@ -90,7 +90,32 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 			result = execSync(sassConvertFormatCommand, { encoding: 'utf8', input: text });
 
 			if (optionUseSingleQuotes) {
+				// Default CSS comment regex
+				// https://developer.mozilla.org/en-US/docs/Web/CSS/Comments
+				// const defaultCSSCommentRegex = /\/\*[^\/\*]+\*\//g; // Log for testing
+				const defaultCSSCommentRegex = /\/\*(\*(?!\/)|[^*])*\*\//g;
+
+				// Sass single line comment regex
+				// http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html#Comments
+				const sassSingleLineCommentRegex = /\/\/.+/g;
+				// const sassSingleLineCommentRegex = /^\/\/.+/gm; // always match from the beginning (Log for testing)
+				const doubleQuotePlaceholder = 'VSCODE_SASS_FORMAT_DOUBLE_QUOTE_PLACEHOLDER';
+
+				// Replace double quotes with placeholder in all default CSS/Sass comments
+				result = result.replace(defaultCSSCommentRegex, (match: string) => {
+					return match.replace(/"/g, doubleQuotePlaceholder);
+				});
+
+				// Replace double quotes with placeholder in all Sass single line comments (Experimental Support)
+				result = result.replace(sassSingleLineCommentRegex, (match: string) => {
+					return match.replace(/"/g, doubleQuotePlaceholder);
+				});
+
+				// Replace all double quotes with single quotes
 				result = result.replace(/"/g, '\'');
+
+				// Revert all double quotes from comments
+				result = result.replace(new RegExp(doubleQuotePlaceholder, 'g'), '"');
 			}
 
 		} catch (error) {

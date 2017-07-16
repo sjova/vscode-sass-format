@@ -75,7 +75,7 @@
         "sassFormat.useSingleQuotes": {
           "type": "boolean",
           "default": false,
-          "description": "Use single quotes."
+          "description": "Use single quotes. Double quotes in comments will remain untouched."
         },
         "sassFormat.sassPath": {
           "type": "string",
