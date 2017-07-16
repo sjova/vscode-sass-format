@@ -69,8 +69,9 @@ This extension contributes the following settings:
 ## Features Roadmap
 
 * Format Files in Folder
-* Code Tests (low priority)
-* EditorConfig support (low priority)
+* EditorConfig support
+* Sass Lint configuration support
+* Code Tests
 
 ## Known issues
 
@@ -91,7 +92,7 @@ Note: Above speed results depends on your hardware and operating system.
 
 ## Issues
 
-This extension should work on Mac (tested on macOS Sierra 10.12.5), Linux (tested Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes I used default setup, default shell and official procedure for installing VS Code and sass command line tools.
+This extension should work on Mac (tested on macOS Sierra 10.12.5), Linux (tested on Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes I used default setup, default shell and official procedure for installing VS Code and sass command line tools.
 
 Please [create an issue](https://github.com/sjova/vscode-sass-format/issues) if you experience any issue on your setup. Also, I suggest to try always latest version of Sass Formatter extension before report any issue.
 
