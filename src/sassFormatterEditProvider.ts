@@ -131,7 +131,8 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 		}
 
 		if (extName === '.css') {
-			sassConvertOptions += '--from css --to scss';
+			// sassConvertOptions += '--from css --to scss';
+			sassConvertOptions += '--from scss --to scss';
 		}
 
 		// Style
