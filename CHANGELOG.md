@@ -3,6 +3,7 @@ All notable changes to the "vscode-sass-format" extension will be documented in 
 
 ## [Unreleased]
 - updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
+- updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
 
 ## [1.1.1] - 2017-07-16
 - Fixed formatting of CSS files

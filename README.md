@@ -99,9 +99,9 @@ Please [create an issue](https://github.com/sjova/vscode-sass-format/issues) if 
 Following details will be useful for debugging:
 
 ```
-Operating system version
-VS Code version
-Sass Formatter version
+Version of operating system
+Version of VS Code
+Version of Sass Formatter extension
 
 $ ruby --version
 $ which ruby
