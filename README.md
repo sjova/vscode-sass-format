@@ -131,3 +131,12 @@ Also paste me whole output from the Output panel (**View** > **Output** > **Sass
 - Added `Sass Lint` configuration support in features roadmad
 - Updated vscode engine to the latest version (`"vscode": "^1.14.0"`)
 - Updated `README.md`
+
+### 1.1.0
+- Added `Format Selection` support
+- Added `useSingleQuotes` setting
+- Added support for Unicode characters
+- Added output channel `Sass Formatter`
+- Better handling errors
+- Code refactoring
+- Updated `README.md`

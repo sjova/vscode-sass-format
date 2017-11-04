@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [Unreleased]
+- updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
+
 ## [1.1.1] - 2017-07-16
 - Fixed formatting of CSS files
 - Ignored `useSingleQuotes` setting for double quotes in comments
