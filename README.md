@@ -4,9 +4,9 @@ Sass formatter extension for VS Code built on top of **sass-convert**. Beautify 
 
 ## Requirements
 
-Requires [sass command line tools](http://sass-lang.com/install) to be installed. Tested sass command line tools: **Sass 3.4.23 (Selective Steve)**.
+Requires [sass command line tools](http://sass-lang.com/install) to be installed. Tested sass command line tools: **Sass 3.5.3**.
 
-More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax) used in this formatter.
+More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax) used in this formatter. And here you can find [Sass Changelog](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html).
 
 ## Usage
 
@@ -60,7 +60,7 @@ This extension contributes the following settings:
 
 * `sassFormat.dasherize`: Convert underscores to dashes.
 * `sassFormat.indent`: How many spaces to use for each level of indentation. Defaults to 4. "t" means use hard tabs.
-* `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formatting Sass.
+* `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formatting Sass. This setting is deprecated. This syntax is not widely used, and is unnecessarily different from CSS.
 * `sassFormat.defaultEncoding`: Specify the default encoding for input files. Defaults to "UTF-8".
 * `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
 * `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
@@ -92,7 +92,7 @@ Note: Above speed results depends on your hardware and operating system.
 
 ## Issues
 
-This extension should work on Mac (tested on macOS Sierra 10.12.5), Linux (tested on Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes I used default setup, default shell and official procedure for installing VS Code and sass command line tools.
+This extension should work on Mac (tested on macOS Sierra 10.12.6), Linux (tested on Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes I used default setup, default shell and official procedure for installing VS Code and sass command line tools.
 
 Please [create an issue](https://github.com/sjova/vscode-sass-format/issues) if you experience any issue on your setup. Also, I suggest to try always latest version of Sass Formatter extension before report any issue.
 

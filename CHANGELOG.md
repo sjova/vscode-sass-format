@@ -2,6 +2,7 @@
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
 ## [Unreleased]
+- tested extension with `Sass 3.5.3`
 - updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
 - updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
 

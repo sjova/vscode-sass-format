@@ -139,7 +139,7 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 	private _getSassConvertOptions(extName: string): string {
 		const optionDasherize = workspace.getConfiguration('sassFormat').get<boolean>("dasherize");
 		const optionIndent = workspace.getConfiguration('sassFormat').get<number | string>("indent");
-		const optionOldStyle = workspace.getConfiguration('sassFormat').get<boolean>("oldStyle");
+		// const optionOldStyle = workspace.getConfiguration('sassFormat').get<boolean>("oldStyle"); // deprecated
 		const optionDefaultEncoding = workspace.getConfiguration('sassFormat').get<string>("defaultEncoding");
 		const optionUnixNewlines = workspace.getConfiguration('sassFormat').get<boolean>("unixNewlines");
 
@@ -168,9 +168,10 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 
 		sassConvertOptions += ` --indent ${optionIndent}`;
 
-		if (optionOldStyle) {
-			sassConvertOptions += ' --old';
-		}
+		// deprecated
+		// if (optionOldStyle) {
+		// 	sassConvertOptions += ' --old';
+		// }
 
 		// Input and Output
 
