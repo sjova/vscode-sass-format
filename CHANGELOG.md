@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
-## [Unreleased]
+## [1.1.2] - 2017-11-04
 - Tested extension with `Sass 3.5.3`
 - Added `sassFormat.inlineComments` setting to preserve inline comments inline
 - Updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)

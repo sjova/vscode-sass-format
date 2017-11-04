@@ -126,6 +126,12 @@ Also paste me whole output from the Output panel (**View** > **Output** > **Sass
 
 ## Release Notes
 
+### 1.1.2
+- Tested extension with `Sass 3.5.3`
+- Added `sassFormat.inlineComments` setting to preserve inline comments inline
+- Updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
+- Updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
+
 ### 1.1.1
 - Fixed formatting of CSS files
 - Ignored `useSingleQuotes` setting for double quotes in comments
