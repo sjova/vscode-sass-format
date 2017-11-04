@@ -2,9 +2,10 @@
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
 ## [Unreleased]
-- tested extension with `Sass 3.5.3`
-- updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
-- updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
+- Tested extension with `Sass 3.5.3`
+- Added `sassFormat.inlineComments` setting to preserve inline comments inline
+- Updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
+- Updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
 
 ## [1.1.1] - 2017-07-16
 - Fixed formatting of CSS files

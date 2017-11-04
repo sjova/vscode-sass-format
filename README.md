@@ -64,6 +64,7 @@ This extension contributes the following settings:
 * `sassFormat.defaultEncoding`: Specify the default encoding for input files. Defaults to "UTF-8".
 * `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
 * `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
+* `sassFormat.inlineComments`: "Keep inline comments inline. Experimental support.
 * `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
 
 ## Features Roadmap

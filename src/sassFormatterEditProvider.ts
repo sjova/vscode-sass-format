@@ -79,6 +79,7 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 	 */
 	private _formatSass(text: string, extName: string): string {
 		const optionUseSingleQuotes = workspace.getConfiguration('sassFormat').get<boolean>("useSingleQuotes");
+		const optionInlineComments = workspace.getConfiguration('sassFormat').get<boolean>("inlineComments");
 
 		let result: string;
 
@@ -87,7 +88,29 @@ export class SassFormatterEditProvider implements DocumentFormattingEditProvider
 		let sassConvertFormatCommand = `${this._sassConvert.sassConvertCommand} ${sassConvertOptions}`;
 
 		try {
+
+			if (optionInlineComments) {
+				// Inline CSS comment regex
+				const inlineCSSCommentRegex = /([;{}]+[ \t]*)(\/\/|\/\*)(.*)$/gm;
+
+				// Mark inline CSS comments, so we can move them back after sass-convert
+				text = text.replace(inlineCSSCommentRegex, "$1$2---vscode-sass-format-end-of-inline-comment---$3");
+			}
+
 			result = execSync(sassConvertFormatCommand, { encoding: 'utf8', input: text });
+
+			if (optionInlineComments) {
+				// Marked inline CSS comment regex
+				const markedInlineCSSCommentRegex = /(\s+)(\/\/|\/\*)(---vscode-sass-format-end-of-inline-comment---)(.*)/gm;
+
+				// Restore inline CSS comments
+				result = result.replace(markedInlineCSSCommentRegex, " $2$4");
+
+				// Cleanup unmatched comments
+				// Example // appeared inside of block comment
+				result = result.replace('//---vscode-sass-format-end-of-inline-comment---', '//');
+				result = result.replace('/*---vscode-sass-format-end-of-inline-comment---', '/*');
+			}
 
 			if (optionUseSingleQuotes) {
 				// Default CSS comment regex

@@ -77,6 +77,11 @@
                     "default": false,
                     "description": "Use single quotes. Double quotes in comments will remain untouched."
                 },
+                "sassFormat.inlineComments": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Keep inline comments inline. Experimental support."
+                },
                 "sassFormat.sassPath": {
                     "type": "string",
                     "default": null,
