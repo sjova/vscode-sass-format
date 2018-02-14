@@ -64,7 +64,7 @@ This extension contributes the following settings:
 * `sassFormat.defaultEncoding`: Specify the default encoding for input files. Defaults to "UTF-8".
 * `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
 * `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
-* `sassFormat.inlineComments`: "Keep inline comments inline. Experimental support.
+* `sassFormat.inlineComments`: Keep inline comments inline. Experimental support.
 * `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
 
 ## Features Roadmap
@@ -125,6 +125,12 @@ $ cat ~/.profile
 Also paste me whole output from the Output panel (**View** > **Output** > **Sass Formatter** channel). And paste me whole output from the Developer Tools console (**Help** > **Toggle Developer Tools**).
 
 ## Release Notes
+
+### 1.1.3
+- Fixed formatting issue when `editor.formatOnPaste` setting is set on `true`
+- Tested extension with `Sass 3.5.5`
+- Updated extension base setup (vscode engine: 1.20.0, build scripts, etc.)
+- Updated LICENSE
 
 ### 1.1.2
 - Tested extension with `Sass 3.5.3`

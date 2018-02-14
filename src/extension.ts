@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-'use strict';
+"use strict";
 
 import {
 	Disposable,
@@ -12,23 +12,34 @@ import {
 	OutputChannel,
 	languages,
 	window,
-	workspace,
-} from 'vscode';
+	workspace
+} from "vscode";
 
-import { SassConvertService, SassConvert } from './sassConvertService';
-import { SassFormatterEditProvider } from './sassFormatterEditProvider';
+import { SassConvertService, SassConvert } from "./sassConvertService";
+import { SassFormatterEditProvider } from "./sassFormatterEditProvider";
 
-const sassSelector: DocumentSelector = ['scss', 'sass', 'css'];
+const sassSelector: DocumentSelector = ["scss", "sass", "css"];
 
 /** Extension Activate */
 export function activate(context: ExtensionContext): void {
-	const outputChannel: OutputChannel = window.createOutputChannel('Sass Formatter');
+	const outputChannel: OutputChannel = window.createOutputChannel(
+		"Sass Formatter"
+	);
 	const sassConvert: SassConvert = new SassConvertService(outputChannel);
-	const sassFormatEditProvider = new SassFormatterEditProvider(outputChannel, sassConvert);
+	const sassFormatEditProvider = new SassFormatterEditProvider(
+		outputChannel,
+		sassConvert
+	);
 
 	const disposables: Disposable[] = [
-		languages.registerDocumentFormattingEditProvider(sassSelector, sassFormatEditProvider),
-		languages.registerDocumentRangeFormattingEditProvider(sassSelector, sassFormatEditProvider),
+		languages.registerDocumentFormattingEditProvider(
+			sassSelector,
+			sassFormatEditProvider
+		),
+		languages.registerDocumentRangeFormattingEditProvider(
+			sassSelector,
+			sassFormatEditProvider
+		),
 		outputChannel
 	];
 
@@ -37,5 +48,4 @@ export function activate(context: ExtensionContext): void {
 	context.subscriptions.push(...disposables);
 }
 
-export function deactivate() {
-}
+export function deactivate() {}

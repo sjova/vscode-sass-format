@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.3] - 2018-02-14
+- Fixed formatting issue when `editor.formatOnPaste` setting is set on `true`
+- Tested extension with `Sass 3.5.5`
+- Updated extension base setup (vscode engine: 1.20.0, build scripts, etc.)
+- Updated LICENSE
+
 ## [1.1.2] - 2017-11-04
 - Tested extension with `Sass 3.5.3`
 - Added `sassFormat.inlineComments` setting to preserve inline comments inline
