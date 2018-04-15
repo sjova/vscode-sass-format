@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.4] - 2018-04-15
+- Tested extension with `Ruby Sass 3.5.6`
+- Updated `README.md`
+
 ## [1.1.3] - 2018-02-14
 - Fixed formatting issue when `editor.formatOnPaste` setting is set on `true`
 - Tested extension with `Sass 3.5.5`
