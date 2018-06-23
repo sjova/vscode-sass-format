@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.5] - 2018-06-23
+- Maintenance updates
+- Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero
+
 ## [1.1.4] - 2018-04-15
 - Tested extension with `Ruby Sass 3.5.6`
 - Updated `README.md`

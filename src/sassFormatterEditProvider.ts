@@ -29,7 +29,8 @@ import { SassConvert, sassConvertErrorMessage } from "./sassConvertService";
  * @param {SassConvert} _sassConvert - Sass Convert Service
  */
 export class SassFormatterEditProvider
-	implements DocumentFormattingEditProvider,
+	implements
+		DocumentFormattingEditProvider,
 		DocumentRangeFormattingEditProvider {
 	constructor(
 		private _outputChannel: OutputChannel,
@@ -56,7 +57,7 @@ export class SassFormatterEditProvider
 	 */
 	private _getTextEdit(document: TextDocument, range?: Range): TextEdit[] {
 		const optionFormatOnPaste = workspace
-			.getConfiguration("editor")
+			.getConfiguration("editor", null)
 			.get<boolean>("formatOnPaste");
 
 		let result: TextEdit[] = [];
@@ -96,6 +97,9 @@ export class SassFormatterEditProvider
 		const optionInlineComments = workspace
 			.getConfiguration("sassFormat")
 			.get<boolean>("inlineComments");
+		const optionNumberLeadingZero = workspace
+			.getConfiguration("sassFormat")
+			.get<boolean>("numberLeadingZero");
 
 		let result: string | any;
 
@@ -178,6 +182,10 @@ export class SassFormatterEditProvider
 					new RegExp(doubleQuotePlaceholder, "g"),
 					'"'
 				);
+			}
+
+			if (!optionNumberLeadingZero) {
+				result = result.replace(/( 0\.)(\d)+/g, " .$2");
 			}
 		} catch (error) {
 			window.showErrorMessage(sassConvertErrorMessage);

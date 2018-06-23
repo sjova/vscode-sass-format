@@ -18,7 +18,12 @@ import {
 import { SassConvertService, SassConvert } from "./sassConvertService";
 import { SassFormatterEditProvider } from "./sassFormatterEditProvider";
 
-const sassSelector: DocumentSelector = ["scss", "sass", "css"];
+// const sassSelector: DocumentSelector = ["scss", "sass", "css"];
+const sassSelector: DocumentSelector = [
+	{ scheme: "file", language: "scss" },
+	{ scheme: "file", language: "sass" },
+	{ scheme: "file", language: "css" }
+];
 
 /** Extension Activate */
 export function activate(context: ExtensionContext): void {

@@ -4,15 +4,15 @@ Sass formatter extension for VS Code built on top of **sass-convert**. Beautify 
 
 ## Requirements
 
-Requires **Ruby Sass** command line tools to be installed. Tested sass command line tools: **Ruby Sass 3.5.6**.
+Requires [Ruby Sass](https://sass-lang.com/ruby-sass) command line tools to be installed. Tested sass command line tools: [Ruby Sass 3.5.6](https://sass-lang.com/documentation/file.SASS_CHANGELOG.html#3_5_6) ([Ruby Sass Gem](https://rubygems.org/gems/sass)).
 
-It is important to say that at this moment **Dart Sass** introduced on [March 26, 2018](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released), is not yet supported by this extension.
+It is important to say that at this moment [Dart Sass](https://sass-lang.com/dart-sass) introduced on [March 26, 2018](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released), is not yet supported by this extension because `sass-convert` functionality is not yet provided in Dart implementation (more details: [GitHub/Dart Sass/Are you planning to implement sass-convert?](https://github.com/sass/dart-sass/issues/188)).
 
 More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax) used in this formatter. And here you can find [Sass Changelog](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html).
 
 ### Install Ruby Sass via command line
 
-This procedure was official before *March 26, 2018*. With the release of Dart Sass 1.0.0, Ruby Sass was officially deprecated. I'll try to replace Ruby Sass with Dart Sass before *June 26, 2018*.
+This procedure was official before *March 26, 2018*. With the release of Dart Sass 1.0.0, Ruby Sass was officially deprecated. I'll try to replace `sass-convert` from Ruby Sass with some alternative (Dart Sass, node-sass, Sass.js) before *March 26, 2019*.
 
 More official links about a transition from Ruby Sass to Dart Sass:
 
@@ -20,11 +20,11 @@ More official links about a transition from Ruby Sass to Dart Sass:
 * [Dart Sass 1.0.0 is Released](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released)
 * [Announcing Dart Sass](http://sass.logdown.com/posts/1022316-announcing-dart-sass)
 
-So instead of following this [Install Sass](http://sass-lang.com/install), which will install Dart Sass, please follow  the old official procedure below.
+So instead of following this [Install Sass](http://sass-lang.com/install), which will install Dart Sass, please follow the old official procedure below.
 
 #### Linux
 
-If you're using a distribution of Linux, you'll need to install Ruby first. You can install Ruby through the apt package manager, rbenv, or rvm. You will also need the build-essential package, available through a package manager as well.
+If you're using a distribution of Linux, you'll need to install Ruby first. You can install Ruby through the apt package manager, `rbenv`, or `rvm`. You will also need the build-essential package, available through a package manager as well.
 
 ```bash
 sudo gem install sass --no-user-install
@@ -124,6 +124,7 @@ This extension contributes the following settings:
 * `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
 * `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
 * `sassFormat.inlineComments`: Keep inline comments inline. Experimental support.
+* `sassFormat.numberLeadingZero`: Keep leading zero in numbers. Experimental support.
 * `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
 
 ## Features Roadmap
@@ -184,6 +185,10 @@ $ cat ~/.profile
 Also, paste me the whole output from the Output panel (**View** > **Output** > **Sass Formatter** channel). And paste me the whole output from the Developer Tools console (**Help** > **Toggle Developer Tools**).
 
 ## Release Notes
+
+### 1.1.5
+- Maintenance updates
+- Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero
 
 ### 1.1.4
 - Tested extension with `Ruby Sass 3.5.6`

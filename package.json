@@ -2,10 +2,10 @@
     "name": "vscode-sass-format",
     "displayName": "Sass Formatter",
     "description": "Beautify sass, scss and css files.",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "publisher": "sasa",
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.24.0"
     },
     "license": "MIT",
     "author": "Sasa Jovanovic",
@@ -24,7 +24,7 @@
     },
     "categories": [
         "Formatters",
-        "Languages"
+        "Programming Languages"
     ],
     "keywords": [
         "beautify",
@@ -81,6 +81,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Keep inline comments inline. Experimental support."
+                },
+                "sassFormat.numberLeadingZero": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Keep leading zero in numbers. Experimental support."
                 },
                 "sassFormat.sassPath": {
                     "type": "string",
