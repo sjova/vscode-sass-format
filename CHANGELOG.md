@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "vscode-sass-format" extension will be documented in this file.
 
+## [1.1.6] - 2018-06-23
+- Fixed package versioning
+
 ## [1.1.5] - 2018-06-23
 - Maintenance updates
 - Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero

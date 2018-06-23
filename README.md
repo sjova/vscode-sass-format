@@ -186,6 +186,9 @@ Also, paste me the whole output from the Output panel (**View** > **Output** > *
 
 ## Release Notes
 
+### 1.1.6
+- Fixed package versioning
+
 ### 1.1.5
 - Maintenance updates
 - Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero
