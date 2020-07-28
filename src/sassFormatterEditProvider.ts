@@ -105,9 +105,7 @@ export class SassFormatterEditProvider
 
 		let sassConvertOptions = this._getSassConvertOptions(extName);
 
-		let sassConvertFormatCommand = `${
-			this._sassConvert.sassConvertCommand
-		} ${sassConvertOptions}`;
+		let sassConvertFormatCommand = `${this._sassConvert.sassConvertCommand} ${sassConvertOptions}`;
 
 		try {
 			if (optionInlineComments) {

@@ -1,26 +1,30 @@
 # Sass Formatter
 
-Sass formatter extension for VS Code built on top of **sass-convert**. Beautify *sass*, *scss* and *css* files.
+Sass formatter extension for VS Code built on top of **sass-convert**. Beautify _sass_, _scss_ and _css_ files.
+
+## Important
+
+Since the latest version od Sass (Dart Sass) not providing a `sass-convert` library, I have decided to stop further maintenance of this extension. You can continue using this extension with old Sass (Ruby Sass) implementation.
 
 ## Requirements
 
-Requires [Ruby Sass](https://sass-lang.com/ruby-sass) command line tools to be installed. Tested sass command line tools: [Ruby Sass 3.5.6](https://sass-lang.com/documentation/file.SASS_CHANGELOG.html#3_5_6) ([Ruby Sass Gem](https://rubygems.org/gems/sass)).
+Requires [Ruby Sass](https://sass-lang.com/ruby-sass) command-line tools to be installed. Tested sass command-line tools: [Ruby Sass Gem v3.7.4](https://rubygems.org/gems/sass).
 
-It is important to say that at this moment [Dart Sass](https://sass-lang.com/dart-sass) introduced on [March 26, 2018](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released), is not yet supported by this extension because `sass-convert` functionality is not yet provided in Dart implementation (more details: [GitHub/Dart Sass/Are you planning to implement sass-convert?](https://github.com/sass/dart-sass/issues/188)).
+It is important to say that [Dart Sass](https://sass-lang.com/dart-sass) introduced on [March 26, 2018](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released), is not supported by this extension because `sass-convert` functionality is not provided in Dart implementation (more details: [GitHub/Dart Sass/Are you planning to implement sass-convert?](https://github.com/sass/dart-sass/issues/188)).
 
-More details about [Sass Syntax](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax) used in this formatter. And here you can find [Sass Changelog](http://sass-lang.com/documentation/file.SASS_CHANGELOG.html).
+More details about [Sass Syntax](https://sass-lang.com/documentation/syntax) used in this formatter.
 
-### Install Ruby Sass via command line
+### Install Ruby Sass via command-line
 
-This procedure was official before *March 26, 2018*. With the release of Dart Sass 1.0.0, Ruby Sass was officially deprecated. I'll try to replace `sass-convert` from Ruby Sass with some alternative (Dart Sass, node-sass, Sass.js) before *March 26, 2019*.
+This procedure was official before _March 26, 2018_. With the release of Dart Sass 1.0.0, Ruby Sass become officially deprecated.
 
 More official links about a transition from Ruby Sass to Dart Sass:
 
-* [Ruby Sass is Deprecated](http://sass.logdown.com/posts/7081811)
-* [Dart Sass 1.0.0 is Released](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released)
-* [Announcing Dart Sass](http://sass.logdown.com/posts/1022316-announcing-dart-sass)
+-   [Ruby Sass is Deprecated](http://sass.logdown.com/posts/7081811)
+-   [Dart Sass 1.0.0 is Released](http://sass.logdown.com/posts/7045860-dart-sass-100-is-released)
+-   [Announcing Dart Sass](http://sass.logdown.com/posts/1022316-announcing-dart-sass)
 
-So instead of following this [Install Sass](http://sass-lang.com/install), which will install Dart Sass, please follow the old official procedure below.
+So instead of following this [Install Sass](http://sass-lang.com/install), which will install Dart Sass, please follow the old official procedure below for installing Ruby Sass instead.
 
 #### Linux
 
@@ -32,19 +36,19 @@ sudo gem install sass --no-user-install
 
 #### Windows
 
-Before you start using Sass you will need to install Ruby. The fastest way to get Ruby on your Windows computer is to use [Ruby Installer](https://rubyinstaller.org). It's a single-click installer that will get everything set up for you super fast.
+Before you start using Sass, you will need to install Ruby. The fastest way to get Ruby on your Windows computer is to use [Ruby Installer](https://rubyinstaller.org). It's a single-click installer that will get everything set up for you super fast.
 
-The installer will also install a Ruby command line powershell application that will let you use the Ruby libraries.
+The installer will also install a Ruby command-line PowerShell application that will let you use the Ruby libraries.
 
 #### Mac
 
-If you prefer the command line over an application then getting Sass set up is a fairly quick process. Sass has a Ruby dependency but if you're using a Mac, congratulations, Ruby comes pre-installed.
+If you prefer the command-line over an application, then getting Sass set up is a fairly quick process. Sass has a Ruby dependency, but if you're using a Mac, congratulations, Ruby comes pre-installed.
 
 #### Install Ruby Sass
 
-Here's the quickest way we've found to start using Sass by using the command line:
+Here's the quickest way we've found to start using Sass by using the command-line:
 
-1. **Open your Terminal or Command Prompt.** On the Mac the Terminal.app comes installed by default. It's located in your "Utilities" folder. On Windows, run `cmd`.
+1. **Open your Terminal or Command Prompt.** On the Mac, the Terminal.app comes installed by default. It's located in your "Utilities" folder. On Windows, run `cmd`.
 
 2. **Install Ruby Sass**. Ruby uses Gems to manage its various packages of code like Sass. In your open terminal window type:
 
@@ -52,7 +56,7 @@ Here's the quickest way we've found to start using Sass by using the command lin
 gem install sass
 ```
 
-This will install Sass and any dependencies for you. It's pretty magical. If you get an error message then it's likely you will need to use the `sudo` command to install the Sass gem. It would look like:
+This will install Sass and any dependencies for you. It's pretty magical. If you get an error message, then it's likely you will need to use the `sudo` command to install the Sass gem. It would look like:
 
 ```bash
 sudo gem install sass
@@ -65,49 +69,51 @@ sass --version
 sass-convert --version
 ```
 
-It should return `Ruby Sass 3.5.6`.
+It should return `Ruby Sass 3.7.4`.
 
 ## Usage
 
-Files can be formatted on-demand by right-clicking in the document and selecting **Format Document** in the editor context menu, by using the associated keyboard shortcut, or by running command **Format Document** from the **Command Palette**.
+Files can be formatted on-demand by right-clicking in the document and selecting **Format Document** in the editor context menu, using the associated keyboard shortcut, or by running command **Format Document** from the **Command Palette**.
 
 Default keyboard shortcuts for **Format Document** command:
-* macOS: **Shift+Alt+F**
-* Linux: **Ctrl+Shift+I**
-* Windows: **Shift+Alt+F**
+
+-   macOS: **Shift+Alt+F**
+-   Linux: **Ctrl+Shift+I**
+-   Windows: **Shift+Alt+F**
 
 Selection can be formatted on-demand by right-clicking in the document and selecting **Format Selection** in the editor context menu, by using the associated keyboard shortcut, or by running command **Format Selection** from the **Command Palette**.
 
 Default keyboard shortcuts for **Format Selection** command:
-* macOS: **Cmd+K Cmd+F**
-* Linux: **Ctrl+K Ctrl+F**
-* Windows: **Ctrl+K Ctrl+F**
+
+-   macOS: **Cmd+K Cmd+F**
+-   Linux: **Ctrl+K Ctrl+F**
+-   Windows: **Ctrl+K Ctrl+F**
 
 By default, formatter using **UTF-8** encoding to ensure proper encoding of all characters. This allows us to use Unicode characters directly in our styling files:
 
 ```scss
 // UTF-8 example
 .icon-prev {
-    &:before {
-        // Unicode Character 'SINGLE LEFT-POINTING ANGLE QUOTATION MARK' (U+2039)
-        content: '‹';
-    }
+	&:before {
+		// Unicode Character 'SINGLE LEFT-POINTING ANGLE QUOTATION MARK' (U+2039)
+		content: "‹";
+	}
 }
 
 // ASCII example
 .icon-prev {
-    &:before {
-        // Unicode Character 'SINGLE LEFT-POINTING ANGLE QUOTATION MARK' (U+2039)
-        content: '\2039';
-    }
+	&:before {
+		// Unicode Character 'SINGLE LEFT-POINTING ANGLE QUOTATION MARK' (U+2039)
+		content: "\2039";
+	}
 }
 ```
 
-To automatically format on paste, add the following to your *settings.json* file: `"editor.formatOnPaste": true`.
+To automatically format on paste, add the following to your _settings.json_ file: `"editor.formatOnPaste": true`.
 
-To automatically format a file on saving, add the following to your *settings.json* file: `"editor.formatOnSave": true`.
+To automatically format a file on saving, add the following to your _settings.json_ file: `"editor.formatOnSave": true`.
 
-To automatically insert a final newline at the end of the file when saving it, add the following to your *settings.json* file: `"files.insertFinalNewline": false`.
+To automatically insert a final newline at the end of the file when saving it, add the following to your _settings.json_ file: `"files.insertFinalNewline": false`.
 
 ## Sass Formatting Demo
 
@@ -117,43 +123,43 @@ To automatically insert a final newline at the end of the file when saving it, a
 
 This extension contributes the following settings:
 
-* `sassFormat.dasherize`: Convert underscores to dashes.
-* `sassFormat.indent`: How many spaces to use for each level of indentation. Defaults to 4. "t" means use hard tabs.
-* `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formatting Sass. This setting is deprecated. This syntax is not widely used and is unnecessarily different from CSS.
-* `sassFormat.defaultEncoding`: Specify the default encoding for input files. Defaults to "UTF-8".
-* `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
-* `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
-* `sassFormat.inlineComments`: Keep inline comments inline. Experimental support.
-* `sassFormat.numberLeadingZero`: Keep leading zero in numbers. Experimental support.
-* `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
+-   `sassFormat.dasherize`: Convert underscores to dashes.
+-   `sassFormat.indent`: How many spaces to use for each level of indentation. Defaults to 4. "t" means use hard tabs.
+-   `sassFormat.oldStyle`: Output the old-style ":prop val" property syntax. Only meaningful when formatting Sass. This setting is deprecated. This syntax is not widely used and is unnecessarily different from CSS.
+-   `sassFormat.defaultEncoding`: Specify the default encoding for input files. Defaults to "UTF-8".
+-   `sassFormat.unixNewlines`: Use Unix-style newlines in formatted files. Always true on Unix. This setting is deprecated. Please use "End of Line" setting from VS Code.
+-   `sassFormat.useSingleQuotes`: Use single quotes. Double quotes in comments will remain untouched.
+-   `sassFormat.inlineComments`: Keep inline comments inline. Experimental support.
+-   `sassFormat.numberLeadingZero`: Keep leading zero in numbers. Experimental support.
+-   `sassFormat.sassPath`: Custom Sass PATH. Example: `"sassFormat.sassPath": "/custom/path/bin"`
 
 ## Features Roadmap
 
-* Format Files in Folder
-* EditorConfig support
-* Sass Lint configuration support
-* Code Tests
+-   Format Files in Folder
+-   EditorConfig support
+-   Sass Lint configuration support
+-   Code Tests
 
 ## Known issues
 
-If you're using [ZSH](http://www.zsh.org/), or if you installed Ruby and Sass via a version manager tool like [rbenv](https://github.com/rbenv/rbenv), [RVM](https://rvm.io/), then you are likely to encounter issues with running `sass-convert` command from VS Code. In this case, please try to use `sassFormat.sassPath` setting where you can define PATH to your sass command line tools.
+If you're using [ZSH](http://www.zsh.org/), or if you installed Ruby and Sass via a version manager tool like [rbenv](https://github.com/rbenv/rbenv), [RVM](https://rvm.io/), then you are likely to encounter issues with running `sass-convert` command from VS Code. In this case, please try to use `sassFormat.sassPath` setting where you can define PATH to your sass command-line tools.
 
 Additionally, if you're using [Ruby Installer](https://rubyinstaller.org/) please check **Add Ruby executables to the PATH** setting during the installation process.
 
 Larger files need some time to be formatted. See below comparison table:
 
-| Lines of Code |         Size |           Execution Time |
-| -------------:| ------------:| ------------------------:|
-|         1,000 |        19 KB |            0.349 seconds |
-|        10,000 |       192 KB |            1.834 seconds |
-|        30,000 |       554 KB |            4.945 seconds |
-|        60,000 |       1.1 MB |            9.916 seconds |
+| Lines of Code |   Size | Execution Time |
+| ------------: | -----: | -------------: |
+|         1,000 |  19 KB |  0.349 seconds |
+|        10,000 | 192 KB |  1.834 seconds |
+|        30,000 | 554 KB |  4.945 seconds |
+|        60,000 | 1.1 MB |  9.916 seconds |
 
 Note: Above speed results depends on your hardware and operating system.
 
 ## Issues
 
-This extension should work on Mac (tested on macOS Sierra 10.12.6), Linux (tested on Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes, I used the default setup, default shell and official procedure for installing VS Code and sass command line tools.
+This extension should work on Mac (tested on macOS Sierra 10.12.6), Linux (tested on Ubuntu 17.04) and Windows (tested on Windows 8.1) operating systems. On each operating system for testing purposes, I used the default setup, default shell and official procedure for installing VS Code and sass command-line tools.
 
 Please [create an issue](https://github.com/sjova/vscode-sass-format/issues) if you experience any issue with your setup. Also, I suggest trying always the latest version of Sass Formatter extension before report any issue.
 
@@ -186,41 +192,56 @@ Also, paste me the whole output from the Output panel (**View** > **Output** > *
 
 ## Release Notes
 
+### 1.1.7
+
+-   Maintenance updates
+-   Updated vscode engine to the latest version (`"vscode": "^1.47.0"`)
+-   Fixed package versioning
+-   Tested extension with `Ruby Sass 3.7.4`
+-   Updated `README.md`
+
 ### 1.1.6
-- Fixed package versioning
+
+-   Fixed package versioning
 
 ### 1.1.5
-- Maintenance updates
-- Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero
+
+-   Maintenance updates
+-   Added `sassFormat.numberLeadingZero` setting to allow more control on number leading zero
 
 ### 1.1.4
-- Tested extension with `Ruby Sass 3.5.6`
-- Updated `README.md`
+
+-   Tested extension with `Ruby Sass 3.5.6`
+-   Updated `README.md`
 
 ### 1.1.3
-- Fixed formatting issue when `editor.formatOnPaste` setting is set on `true`
-- Tested extension with `Sass 3.5.5`
-- Updated extension base setup (vscode engine: 1.20.0, build scripts, etc.)
-- Updated LICENSE
+
+-   Fixed formatting issue when `editor.formatOnPaste` setting is set on `true`
+-   Tested extension with `Sass 3.5.5`
+-   Updated extension base setup (vscode engine: 1.20.0, build scripts, etc.)
+-   Updated LICENSE
 
 ### 1.1.2
-- Tested extension with `Sass 3.5.3`
-- Added `sassFormat.inlineComments` setting to preserve inline comments inline
-- Updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
-- Updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
+
+-   Tested extension with `Sass 3.5.3`
+-   Added `sassFormat.inlineComments` setting to preserve inline comments inline
+-   Updated extension base setup (vscode engine: 1.17.0, build scripts, etc.)
+-   Updated .editorconfig, tslint (matched with vscode setup), updated LICENSE
 
 ### 1.1.1
-- Fixed formatting of CSS files
-- Ignored `useSingleQuotes` setting for double quotes in comments
-- Added `Sass Lint` configuration support in features roadmad
-- Updated vscode engine to the latest version (`"vscode": "^1.14.0"`)
-- Updated `README.md`
+
+-   Fixed formatting of CSS files
+-   Ignored `useSingleQuotes` setting for double quotes in comments
+-   Added `Sass Lint` configuration support in features roadmad
+-   Updated vscode engine to the latest version (`"vscode": "^1.14.0"`)
+-   Updated `README.md`
 
 ### 1.1.0
-- Added `Format Selection` support
-- Added `useSingleQuotes` setting
-- Added support for Unicode characters
-- Added output channel `Sass Formatter`
-- Better handling errors
-- Code refactoring
-- Updated `README.md`
+
+-   Added `Format Selection` support
+-   Added `useSingleQuotes` setting
+-   Added support for Unicode characters
+-   Added output channel `Sass Formatter`
+-   Better handling errors
+-   Code refactoring
+-   Updated `README.md`

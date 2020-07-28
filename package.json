@@ -1,112 +1,119 @@
 {
-    "name": "vscode-sass-format",
-    "displayName": "Sass Formatter",
-    "description": "Beautify sass, scss and css files.",
-    "version": "1.1.6",
-    "publisher": "sasa",
-    "engines": {
-        "vscode": "^1.24.0"
-    },
-    "license": "MIT",
-    "author": "Sasa Jovanovic",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/sjova/vscode-sass-format.git"
-    },
-    "bugs": {
-        "url": "https://github.com/sjova/vscode-sass-format/issues"
-    },
-    "homepage": "https://github.com/sjova/vscode-sass-format/blob/master/README.md",
-    "icon": "images/sass-format-icon.png",
-    "galleryBanner": {
-        "color": "#cccc66",
-        "theme": "light"
-    },
-    "categories": [
-        "Formatters",
-        "Programming Languages"
-    ],
-    "keywords": [
-        "beautify",
-        "prettify",
-        "sass",
-        "scss",
-        "css"
-    ],
-    "activationEvents": [
-        "onLanguage:scss",
-        "onLanguage:sass",
-        "onLanguage:css"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "configuration": {
-            "type": "object",
-            "title": "Sass Format configuration",
-            "properties": {
-                "sassFormat.dasherize": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Convert underscores to dashes."
-                },
-                "sassFormat.indent": {
-                    "type": [
-                        "number",
-                        "string"
-                    ],
-                    "default": 4,
-                    "description": "How many spaces to use for each level of indentation. Defaults to 4. \"t\" means use hard tabs."
-                },
-                "sassFormat.oldStyle": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Output the old-style \":prop val\" property syntax. Only meaningful when formating Sass."
-                },
-                "sassFormat.defaultEncoding": {
-                    "type": "string",
-                    "default": "UTF-8",
-                    "description": "Specify the default encoding for input files. Defaults to \"UTF-8\"."
-                },
-                "sassFormat.unixNewlines": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Use Unix-style newlines in written files. Always true on Unix. This setting is deprecated. Please use \"End of Line\" setting from VS Code."
-                },
-                "sassFormat.useSingleQuotes": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Use single quotes. Double quotes in comments will remain untouched."
-                },
-                "sassFormat.inlineComments": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Keep inline comments inline. Experimental support."
-                },
-                "sassFormat.numberLeadingZero": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Keep leading zero in numbers. Experimental support."
-                },
-                "sassFormat.sassPath": {
-                    "type": "string",
-                    "default": null,
-                    "description": "Custom Sass PATH."
-                }
-            }
-        }
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "tslint": "^5.8.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
-    }
+	"name": "vscode-sass-format",
+	"displayName": "Sass Formatter",
+	"description": "Beautify sass, scss and css files.",
+	"version": "1.1.7",
+	"publisher": "sasa",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"license": "MIT",
+	"author": "Sasa Jovanovic",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sjova/vscode-sass-format.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sjova/vscode-sass-format/issues"
+	},
+	"homepage": "https://github.com/sjova/vscode-sass-format/blob/master/README.md",
+	"icon": "images/sass-format-icon.png",
+	"galleryBanner": {
+		"color": "#cccc66",
+		"theme": "light"
+	},
+	"categories": [
+		"Formatters",
+		"Programming Languages"
+	],
+	"keywords": [
+		"beautify",
+		"prettify",
+		"sass",
+		"scss",
+		"css"
+	],
+	"activationEvents": [
+		"onLanguage:scss",
+		"onLanguage:sass",
+		"onLanguage:css"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Sass Format configuration",
+			"properties": {
+				"sassFormat.dasherize": {
+					"type": "boolean",
+					"default": false,
+					"description": "Convert underscores to dashes."
+				},
+				"sassFormat.indent": {
+					"type": [
+						"number",
+						"string"
+					],
+					"default": 4,
+					"description": "How many spaces to use for each level of indentation. Defaults to 4. \"t\" means use hard tabs."
+				},
+				"sassFormat.oldStyle": {
+					"type": "boolean",
+					"default": false,
+					"description": "Output the old-style \":prop val\" property syntax. Only meaningful when formating Sass."
+				},
+				"sassFormat.defaultEncoding": {
+					"type": "string",
+					"default": "UTF-8",
+					"description": "Specify the default encoding for input files. Defaults to \"UTF-8\"."
+				},
+				"sassFormat.unixNewlines": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use Unix-style newlines in written files. Always true on Unix. This setting is deprecated. Please use \"End of Line\" setting from VS Code."
+				},
+				"sassFormat.useSingleQuotes": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use single quotes. Double quotes in comments will remain untouched."
+				},
+				"sassFormat.inlineComments": {
+					"type": "boolean",
+					"default": true,
+					"description": "Keep inline comments inline. Experimental support."
+				},
+				"sassFormat.numberLeadingZero": {
+					"type": "boolean",
+					"default": true,
+					"description": "Keep leading zero in numbers. Experimental support."
+				},
+				"sassFormat.sassPath": {
+					"type": "string",
+					"default": null,
+					"description": "Custom Sass PATH."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.47.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
 }
